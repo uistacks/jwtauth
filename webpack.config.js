@@ -1,12 +1,19 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 
-const SRC_DIR = path.resolve(__dirname, 'frontend/src');
-const BUILD_DIR = path.resolve(__dirname, 'frontend/public/dist');
+const APP_SRC_DIR = path.resolve(__dirname, 'client/src/app');
+const ADMIN_SRC_DIR = path.resolve(__dirname, 'client/src/admin');
+const BUILD_DIR = path.resolve(__dirname, 'client/public/dist');
 
 module.exports = {
-    entry: path.resolve(SRC_DIR, 'index.js'),
+    // entry: path.resolve(SRC_DIR, 'index.js'),
+    entry: {
+        app: path.resolve(APP_SRC_DIR, 'index.js'),
+        admin: path.resolve(ADMIN_SRC_DIR, 'index.js')
+    },
     mode: "development",
     module: {
         rules: [
@@ -24,14 +31,20 @@ module.exports = {
         extensions: ['*', '.js', '.jsx']
     },
     output: {
-        filename: 'bundle.js',
+        filename: '[name]-bundle.js',
         path: BUILD_DIR
     },
     plugins: [
+        // new CleanWebpackPlugin(),
+        // new HtmlWebpackPlugin({
+        //     title: 'Hot Module Replacement'
+        // }),
         new webpack.HotModuleReplacementPlugin()
     ],
+    // devtool: 'inline-source-map',
     devServer: {
-        hot: true,
-        historyApiFallback: true
+        // contentBase: './dist',
+        historyApiFallback: true,
+        hot: true
     }
 }

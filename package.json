@@ -2,10 +2,10 @@
   "name": "jwtauth",
   "version": "1.0.0",
   "description": "",
-  "main": "backend/app.js",
+  "main": "server/app.js",
   "scripts": {
-    "start": "nodemon --exec babel-node backend/app.js",
-    "dev": "nodemon --watch server --watch backend/app.js backend/app.js",
+    "start": "nodemon --exec babel-node server/app.js",
+    "dev": "nodemon --watch server --watch server/app.js server/app.js",
     "webpack": "webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -44,6 +44,8 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
     "nodemon": "^1.19.1",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",
