@@ -7,3 +7,4 @@ node_modules
 /.idea/modules.xml
 /.idea/workspace.xml
 /yarn.lock
+/.idea/vcs.xml
